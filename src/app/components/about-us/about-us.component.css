@@ -1,0 +1,75 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+  gap: 2rem;
+}
+.but-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.but-flex p {
+  border-right: 2px solid black;
+  border: 2px dashed black;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+}
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.last {
+  justify-content: space-evenly;
+}
+.text {
+  font-size: 1.25rem;
+}
+.achivement {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.big-digit {
+  font-size: 9rem;
+}
+.nice-backdrop {
+  position: relative;
+  background: #f5eff6;
+  padding: 1rem 2rem;
+  padding-bottom: 3rem;
+  margin: 0 -2rem;
+  margin-bottom: -3rem;
+}
+
+.nice-backdrop:before {
+  filter: blur(30px);
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #f5eff6;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transform-origin: right top;
+  transform: skewY(3deg);
+}
+.flower-seller {
+  width: 100%;
+  max-height: 500px;
+}
+.flower-girl {
+  height: 100%;
+  width: 100%;
+  max-height: 700px;
+  object-position: 50% 10%;
+}

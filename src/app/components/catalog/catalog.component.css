@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.categories a:hover {
+  transform: scale(1.02);
+}
+
+.category {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 1rem;
+}
+
+.categories-link:first-child .category {
+  background-image: linear-gradient(
+      to bottom right,
+      hsl(0deg 0% 0% / 0.75) 0%,
+      transparent 45%
+    ),
+    url(../../../assets/images/roses.jpg);
+}
+.categories-link:nth-child(2) .category {
+  background-image: linear-gradient(
+      to bottom right,
+      hsl(0deg 0% 0% / 0.75) 0%,
+      transparent 45%
+    ),
+    url(../../../assets/images/boucket.jpeg);
+}
+.categories-link:nth-child(3) .category {
+  background-image: linear-gradient(
+      to bottom right,
+      hsl(0deg 0% 0% / 0.75) 0%,
+      transparent 45%
+    ),
+    url(../../../assets/images/flower-composition.jpg);
+}
+.categories-link:nth-child(4) .category {
+  background-image: linear-gradient(
+      to bottom right,
+      hsl(0deg 0% 0% / 0.75) 0%,
+      transparent 45%
+    ),
+    url(../../../assets/images/plants.jpg);
+}
+.categories-link:nth-child(5) .category {
+  background-image: linear-gradient(
+      to bottom right,
+      hsl(0deg 0% 0% / 0.75) 0%,
+      transparent 45%
+    ),
+    url(../../../assets/images/gifts.jpg);
+}
+
+.catalog-img {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.category-title {
+  position: absolute;
+  top: 2.5rem;
+  left: 0.5rem;
+  color: white;
+  transform: translate(1rem, -100%);
+}

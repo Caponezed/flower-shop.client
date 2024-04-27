@@ -1,0 +1,29 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-items: center;
+  margin: 0 -32px;
+  margin-top: 3rem;
+  padding: 32px;
+
+  border-top: 1px lightyellow;
+  background-color: lightskyblue;
+}
+.column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.column-container b {
+  font-size: 1.25rem;
+}
+.tel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.order-call-btn {
+  max-width: fit-content;
+}

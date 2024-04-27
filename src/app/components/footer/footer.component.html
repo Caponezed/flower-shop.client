@@ -1,0 +1,83 @@
+<footer class="footer">
+  <div class="column-container">
+    <app-logo></app-logo>
+    <div class="note">
+      © 2024 «FlowerShop»<br />доставка цветов в Ярославле
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </div>
+  <div class="column-container">
+    <b>Для клиентов</b>
+    <a routerLink="/about-us" routerLinkActive="link-active">О нас</a>
+    <a routerLink="/delivery" routerLinkActive="link-active"
+      >Доставка и оплата</a
+    >
+    <a routerLink="/feedback" routerLinkActive="link-active">Отзывы клиентов</a>
+    <a routerLink="/contacts" routerLinkActive="link-active">Контакты</a>
+  </div>
+  <div class="column-container">
+    <b>Каталог</b>
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'Розы' }"
+      routerLinkActive="link-active"
+      >Розы</a
+    >
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'Букеты' }"
+      routerLinkActive="link-active"
+      >Букеты</a
+    >
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'Композиции' }"
+      routerLinkActive="link-active"
+      >Композиции</a
+    >
+    <a
+      routerLink="/products"
+      [queryParams]="{ category: 'Горшечные растения' }"
+      routerLinkActive="link-active"
+      >Горшечные растения</a
+    >
+  </div>
+  <div class="column-container">
+    <b>Контакты</b>
+    <a class="social-link" href="#"
+      ><img
+        class="social-link-image"
+        src="../../../assets/icons/ok.svg"
+        alt=""
+      />Ok</a
+    >
+    <a class="social-link" href="#"
+      ><img
+        class="social-link-image"
+        src="../../../assets/icons/whatsapp.svg"
+        alt=""
+      />Whats up</a
+    >
+    <a class="social-link" href="#"
+      ><img
+        class="social-link-image"
+        src="../../../assets/icons/insta.svg"
+        alt=""
+      />Instagram</a
+    >
+    <a class="social-link" href="#"
+      ><img
+        class="social-link-image"
+        src="../../../assets/icons/facebook.svg"
+        alt=""
+      />Facebook</a
+    >
+    <a class="phone-number social-link" href="tel: +79807016708"
+      ><img
+        class="social-link-image"
+        src="../../../assets/icons/phone-call.svg"
+        alt=""
+      />+79807016708</a
+    >
+  </div>
+</footer>

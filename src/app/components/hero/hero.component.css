@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.info-list {
+  padding: 0px 32px;
+  font-size: 1.25rem;
+  list-style-image: url(../../../assets/icons/list-flower.svg);
+}

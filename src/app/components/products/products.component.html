@@ -1,0 +1,7 @@
+<h1 style="margin-bottom: 16px">{{ this.category }}</h1>
+<div class="cards-container">
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+  ></app-product>
+</div>

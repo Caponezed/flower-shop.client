@@ -1,0 +1,187 @@
+<div class="main-container">
+  <form>
+    <div class="order-info">
+      <div class="order-block">
+        <div class="order-block-header">
+          <span class="order-block-step">1</span>
+          <h2 class="order-block-title">Отправитель</h2>
+        </div>
+
+        <div class="order-block-outer-container">
+          <div class="order-block-inner-container">
+            <div class="order-block-inputs">
+              <input
+                class="order-block-input"
+                type="text"
+                name="firstName"
+                placeholder="Имя отправителя"
+              />
+              <input
+                class="order-block-input"
+                type="tel"
+                name="phoneNumber"
+                placeholder="Телефон отправителя"
+              />
+            </div>
+            <button class="btn">Продолжить</button>
+          </div>
+        </div>
+      </div>
+      <div class="order-block">
+        <div class="order-block-header">
+          <span class="order-block-step">2</span>
+          <h2 class="order-block-title">Получатель</h2>
+        </div>
+
+        <div class="order-block-outer-container">
+          <div class="order-block-inner-container">
+            <div class="order-block-inputs">
+              <input
+                class="order-block-input"
+                type="text"
+                name="firstName"
+                placeholder="Имя получателя"
+              />
+              <input
+                class="order-block-input"
+                type="tel"
+                name="phoneNumber"
+                placeholder="Телефон получателя"
+              />
+            </div>
+            <button class="btn">Продолжить</button>
+          </div>
+        </div>
+      </div>
+      <div class="order-block">
+        <div class="order-block-header">
+          <span class="order-block-step">3</span>
+          <h2 class="order-block-title">Способ и время отправки</h2>
+        </div>
+
+        <div class="order-block-outer-container">
+          <div class="order-block-inner-container">
+            <div class="order-block-inputs with-radios">
+              <div class="order-block-radios">
+                <div class="order-block-radio">
+                  <input
+                    class="order-block-input"
+                    type="radio"
+                    name="firstName"
+                  />
+                  <p class="order-block-radio-signature">
+                    Курьером <span>300₽</span>
+                  </p>
+                </div>
+                <div class="order-block-radio">
+                  <input
+                    class="order-block-input"
+                    type="radio"
+                    name="firstName"
+                  />
+                  <p class="order-block-radio-signature">
+                    Самовывоз <span>бесплатно</span>
+                  </p>
+                </div>
+              </div>
+              <input
+                class="order-block-input"
+                type="text"
+                name="phoneNumber"
+                placeholder="Адрес получателя"
+              />
+            </div>
+            <button class="btn">Продолжить</button>
+          </div>
+        </div>
+      </div>
+      <div class="order-block">
+        <div class="order-block-header">
+          <span class="order-block-step">4</span>
+          <h2 class="order-block-title">Способ оплаты</h2>
+        </div>
+
+        <div class="order-block-outer-container">
+          <div class="order-block-inner-container">
+            <div class="order-block-inputs with-radios">
+              <div class="order-block-radios">
+                <div class="order-block-radio">
+                  <input
+                    class="order-block-input"
+                    type="radio"
+                    name="bank-card"
+                  />
+                  <p class="order-block-radio-signature">Банковской картой</p>
+                </div>
+                <div class="order-block-radio">
+                  <input
+                    class="order-block-input"
+                    type="radio"
+                    name="sbp-transfer"
+                  />
+                  <p class="order-block-radio-signature">Переводом СБП</p>
+                </div>
+                <div class="order-block-radio">
+                  <input class="order-block-input" type="radio" name="cash" />
+                  <p class="order-block-radio-signature">Наличными</p>
+                </div>
+              </div>
+            </div>
+            <button class="btn">Продолжить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <section class="cart-container">
+    <div class="order-review">
+      <h2>Корзина</h2>
+
+      <p *ngIf="!cartProducts?.length" class="cart-placeholder">
+        Сейчас в вашей корзине пусто
+      </p>
+      <div class="products">
+        <app-cart-product
+          *ngFor="let cartProduct of cartProducts"
+          [cartProduct]="cartProduct"
+        ></app-cart-product>
+        <button
+          class="btn"
+          [disabled]="!cartProducts?.length"
+          (click)="this.clearCartProducts()"
+        >
+          Очистить корзину
+        </button>
+      </div>
+
+      <div class="order-summary">
+        <div class="order-summary-info">
+          <h3 class="order-summary-header">Итого</h3>
+          <p>Товары: {{ this.productsPrice }} ₽</p>
+          <p>Доставка: {{ this.deliveryPrice }} ₽</p>
+          <p>
+            <b
+              >Общая стоимость:
+              {{ (this.productsPrice || 0) + this.deliveryPrice }} ₽</b
+            >
+          </p>
+        </div>
+        <div class="payment">
+          <button class="btn">Оплатить</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="attention">
+      <div class="attention-header">Обратите внимание!</div>
+      <div class="body">
+        При отсутствии некоторых сортов и оттенков цветов, а также вариантов
+        оформления, флористы оставляют за собой возможность их&nbsp;замены с
+        сохранением цветовой гаммы и&nbsp;итоговой стоимости композиции букета!
+      </div>
+      <div class="footer">
+        Заказы обрабатываются менеджерами ежедневно с 8:00 до 23:00
+      </div>
+    </div>
+  </section>
+</div>

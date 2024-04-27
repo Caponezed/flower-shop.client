@@ -1,1 +1,166 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Personal changes */
+
+html,
+body {
+  font-family: "Wotfard", sans-serif;
+  font-size: 1.15rem;
+}
+
+body {
+  padding: 0 32px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 50ms;
+  will-change: transform;
+}
+a:hover,
+a:focus {
+  transform: scale(1.02);
+}
+a:active {
+  color: red;
+  transform: scale(1);
+}
+.link-active {
+  padding: 2px 4px;
+
+  outline: 2px solid lightcoral;
+  border-radius: 4px;
+}
+.phone-number {
+  text-decoration: underline;
+}
+/* Reused styles active elements */
+.btn {
+  padding: 8px 16px;
+
+  text-align: center;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  transition: linear 50ms;
+}
+
+.btn,
+.count-input {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn:focus,
+.btn.gray-bg:hover,
+.btn.gray-bg:focus {
+  transform: scale(1.02);
+  color: black;
+  background-color: rgb(55, 177, 253);
+}
+.btn:active,
+.btn.gray-bg:active {
+  background-color: rgb(253, 55, 55);
+}
+.gray-bg {
+  color: white;
+  background-color: lightslategrey;
+}
+.btn:disabled {
+  color: lightgray;
+  transform: scale(1);
+  background-color: white;
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.counter-header {
+  font-size: 1.3rem;
+}
+.count-input {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: linear 50ms;
+}
+
+/* Common styles for the layout */
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.social-link-image {
+  width: 25px;
+  height: 25px;
+}

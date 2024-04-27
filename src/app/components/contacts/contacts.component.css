@@ -1,0 +1,59 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+}
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.contact-type {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: darkgray;
+}
+.contact-messengers {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.contact-messenger-icon {
+  width: 40px;
+  height: 40px;
+}
+.contact-text {
+  line-height: 1;
+}
+
+/* Shops */
+
+.shop-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.shop-image {
+  max-width: 500px;
+  height: 500px;
+}
+.shop-status {
+  font-size: 0.9rem;
+}
+.shop-status.closed {
+  color: red;
+}
+.shop-status.opened {
+  color: green;
+}

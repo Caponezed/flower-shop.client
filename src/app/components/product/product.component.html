@@ -1,0 +1,24 @@
+<div class="card-container">
+  <div class="card-content">
+    <a
+      routerLink="product"
+      [queryParams]="{ id: product.id, category: product.category.name }"
+    >
+      <img class="img card-img" [src]="product.imgUrl" [alt]="product.name"
+    /></a>
+    <div class="card-summary">
+      <p class="card-signature">{{ product.name }}</p>
+      <p class="card-price">{{ product.price }}₽</p>
+    </div>
+    <p class="card-description">
+      {{ product.description }}
+    </p>
+  </div>
+  <div class="card-buttons">
+    <button class="btn card-button">💖</button>
+    <app-product-buttons
+      class="card-button"
+      [product]="product"
+    ></app-product-buttons>
+  </div>
+</div>

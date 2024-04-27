@@ -1,0 +1,84 @@
+<header class="header">
+  <div class="first-header">
+    <app-logo></app-logo>
+    <nav>
+      <ul class="nav">
+        <li>
+          <a routerLink="/about-us" routerLinkActive="link-active">О нас</a>
+        </li>
+        <li>
+          <a routerLink="/delivery" routerLinkActive="link-active"
+            >Доставка и оплата</a
+          >
+        </li>
+        <li>
+          <a routerLink="/feedback" routerLinkActive="link-active"
+            >Отзывы клиентов</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contacts" routerLinkActive="link-active">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="tel-container">
+      <a class="social-link phone-number" href="tel: +79807016708"
+        ><img
+          class="social-link-image"
+          src="../../../assets/icons/phone-call.svg"
+          alt=""
+        />+79807016708</a
+      >
+    </div>
+    <div class="cart-container">
+      <a routerLink="/cart" routerLinkActive="link-active">🛒</a>
+      <span>{{ this.productsPrice || 0 }}₽</span>
+    </div>
+  </div>
+  <div class="second-header">
+    <nav>
+      <ul class="categories">
+        <li>
+          <a
+            routerLink="/products"
+            [queryParams]="{ category: 'Розы' }"
+            routerLinkActive="link-active"
+            >Розы</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/products"
+            [queryParams]="{ category: 'Букеты' }"
+            routerLinkActive="link-active"
+            >Букеты</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/products"
+            [queryParams]="{ category: 'Композиции' }"
+            routerLinkActive="link-active"
+            >Композиции</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/products"
+            [queryParams]="{ category: 'Горшечные растения' }"
+            routerLinkActive="link-active"
+            >Горшечные растения</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/products"
+            [queryParams]="{ category: 'Подарки' }"
+            routerLinkActive="link-active"
+            >Подарки</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

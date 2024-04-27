@@ -1,0 +1,27 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: fit-content;
+}
+.delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+.delivery-part {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  list-style-image: url(../../../assets/icons/list-flower.svg);
+}
+.delivery-part-heading {
+  justify-self: center;
+}
+.delivery-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1.3rem;
+  max-width: 60ch;
+}
