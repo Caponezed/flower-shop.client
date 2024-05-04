@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/model/product';
 import ProductService from 'src/app/services/product.service';
@@ -9,8 +9,7 @@ import ProductService from 'src/app/services/product.service';
   styleUrls: ['./opened-product.component.css'],
 })
 export class OpenedProductComponent {
-  public product?: Product;
-  @Output() countChange = new EventEmitter();
+  public product!: Product;
 
   constructor(
     private productService: ProductService,
@@ -19,9 +18,10 @@ export class OpenedProductComponent {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((queryParams) => {
-      const id: number = queryParams['id'];
-      console.log(id);
-      this.product = this.productService.getProduct(id);
+      const productId: number = queryParams['productId'];
+      this.productService
+        .getProductById(productId)
+        .subscribe((product) => (this.product = product));
     });
   }
 }

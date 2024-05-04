@@ -1,0 +1,55 @@
+.backdrop {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.7;
+}
+.modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 50ms linear;
+  will-change: background-color;
+}
+.modal-btn:hover,
+.modal-btn:active,
+.modal-btn:focus {
+  background-color: hsl(0 0% 50% / 1);
+}
+
+.main-container {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.add-cart-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+
+  background-color: hsl(76 0% 75% / 1);
+  border-radius: 1rem;
+}
+.cart-form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.add-cart-form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}

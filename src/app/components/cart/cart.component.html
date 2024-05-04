@@ -1,134 +1,132 @@
 <div class="main-container">
-  <form>
-    <div class="order-info">
-      <div class="order-block">
-        <div class="order-block-header">
-          <span class="order-block-step">1</span>
-          <h2 class="order-block-title">Отправитель</h2>
-        </div>
+  <form class="glass-like cart-form">
+    <div class="order-block">
+      <div class="order-block-header">
+        <span class="order-block-step">1</span>
+        <h2 class="order-block-title">Отправитель</h2>
+      </div>
 
-        <div class="order-block-outer-container">
-          <div class="order-block-inner-container">
-            <div class="order-block-inputs">
-              <input
-                class="order-block-input"
-                type="text"
-                name="firstName"
-                placeholder="Имя отправителя"
-              />
-              <input
-                class="order-block-input"
-                type="tel"
-                name="phoneNumber"
-                placeholder="Телефон отправителя"
-              />
-            </div>
-            <button class="btn">Продолжить</button>
+      <div class="order-block-outer-container">
+        <div class="order-block-inner-container">
+          <div class="order-block-inputs">
+            <input
+              class="order-block-input"
+              type="text"
+              name="firstName"
+              placeholder="Имя отправителя"
+            />
+            <input
+              class="order-block-input"
+              type="tel"
+              name="phoneNumber"
+              placeholder="Телефон отправителя"
+            />
           </div>
+          <button class="btn" [disabled]="true">Продолжить</button>
         </div>
       </div>
-      <div class="order-block">
-        <div class="order-block-header">
-          <span class="order-block-step">2</span>
-          <h2 class="order-block-title">Получатель</h2>
-        </div>
+    </div>
+    <div class="order-block">
+      <div class="order-block-header">
+        <span class="order-block-step">2</span>
+        <h2 class="order-block-title">Получатель</h2>
+      </div>
 
-        <div class="order-block-outer-container">
-          <div class="order-block-inner-container">
-            <div class="order-block-inputs">
-              <input
-                class="order-block-input"
-                type="text"
-                name="firstName"
-                placeholder="Имя получателя"
-              />
-              <input
-                class="order-block-input"
-                type="tel"
-                name="phoneNumber"
-                placeholder="Телефон получателя"
-              />
-            </div>
-            <button class="btn">Продолжить</button>
+      <div class="order-block-outer-container">
+        <div class="order-block-inner-container">
+          <div class="order-block-inputs">
+            <input
+              class="order-block-input"
+              type="text"
+              name="firstName"
+              placeholder="Имя получателя"
+            />
+            <input
+              class="order-block-input"
+              type="tel"
+              name="phoneNumber"
+              placeholder="Телефон получателя"
+            />
           </div>
+          <button class="btn" [disabled]="true">Продолжить</button>
         </div>
       </div>
-      <div class="order-block">
-        <div class="order-block-header">
-          <span class="order-block-step">3</span>
-          <h2 class="order-block-title">Способ и время отправки</h2>
-        </div>
+    </div>
+    <div class="order-block">
+      <div class="order-block-header">
+        <span class="order-block-step">3</span>
+        <h2 class="order-block-title">Способ и время отправки</h2>
+      </div>
 
-        <div class="order-block-outer-container">
-          <div class="order-block-inner-container">
-            <div class="order-block-inputs with-radios">
-              <div class="order-block-radios">
-                <div class="order-block-radio">
-                  <input
-                    class="order-block-input"
-                    type="radio"
-                    name="firstName"
-                  />
-                  <p class="order-block-radio-signature">
-                    Курьером <span>300₽</span>
-                  </p>
-                </div>
-                <div class="order-block-radio">
-                  <input
-                    class="order-block-input"
-                    type="radio"
-                    name="firstName"
-                  />
-                  <p class="order-block-radio-signature">
-                    Самовывоз <span>бесплатно</span>
-                  </p>
-                </div>
+      <div class="order-block-outer-container">
+        <div class="order-block-inner-container">
+          <div class="order-block-inputs with-radios">
+            <div class="order-block-radios">
+              <div class="order-block-radio">
+                <input
+                  class="order-block-input"
+                  type="radio"
+                  name="firstName"
+                />
+                <p class="order-block-radio-signature">
+                  Курьером <span>300₽</span>
+                </p>
               </div>
-              <input
-                class="order-block-input"
-                type="text"
-                name="phoneNumber"
-                placeholder="Адрес получателя"
-              />
-            </div>
-            <button class="btn">Продолжить</button>
-          </div>
-        </div>
-      </div>
-      <div class="order-block">
-        <div class="order-block-header">
-          <span class="order-block-step">4</span>
-          <h2 class="order-block-title">Способ оплаты</h2>
-        </div>
-
-        <div class="order-block-outer-container">
-          <div class="order-block-inner-container">
-            <div class="order-block-inputs with-radios">
-              <div class="order-block-radios">
-                <div class="order-block-radio">
-                  <input
-                    class="order-block-input"
-                    type="radio"
-                    name="bank-card"
-                  />
-                  <p class="order-block-radio-signature">Банковской картой</p>
-                </div>
-                <div class="order-block-radio">
-                  <input
-                    class="order-block-input"
-                    type="radio"
-                    name="sbp-transfer"
-                  />
-                  <p class="order-block-radio-signature">Переводом СБП</p>
-                </div>
-                <div class="order-block-radio">
-                  <input class="order-block-input" type="radio" name="cash" />
-                  <p class="order-block-radio-signature">Наличными</p>
-                </div>
+              <div class="order-block-radio">
+                <input
+                  class="order-block-input"
+                  type="radio"
+                  name="firstName"
+                />
+                <p class="order-block-radio-signature">
+                  Самовывоз <span>бесплатно</span>
+                </p>
               </div>
             </div>
-            <button class="btn">Продолжить</button>
+            <input
+              class="order-block-input"
+              type="text"
+              name="phoneNumber"
+              placeholder="Адрес получателя"
+            />
           </div>
+          <button class="btn" [disabled]="true">Продолжить</button>
+        </div>
+      </div>
+    </div>
+    <div class="order-block">
+      <div class="order-block-header">
+        <span class="order-block-step">4</span>
+        <h2 class="order-block-title">Способ оплаты</h2>
+      </div>
+
+      <div class="order-block-outer-container">
+        <div class="order-block-inner-container">
+          <div class="order-block-inputs with-radios">
+            <div class="order-block-radios">
+              <div class="order-block-radio">
+                <input
+                  class="order-block-input"
+                  type="radio"
+                  name="bank-card"
+                />
+                <p class="order-block-radio-signature">Банковской картой</p>
+              </div>
+              <div class="order-block-radio">
+                <input
+                  class="order-block-input"
+                  type="radio"
+                  name="sbp-transfer"
+                />
+                <p class="order-block-radio-signature">Переводом СБП</p>
+              </div>
+              <div class="order-block-radio">
+                <input class="order-block-input" type="radio" name="cash" />
+                <p class="order-block-radio-signature">Наличными</p>
+              </div>
+            </div>
+          </div>
+          <button class="btn" [disabled]="true">Продолжить</button>
         </div>
       </div>
     </div>
@@ -148,7 +146,7 @@
         <button
           class="btn"
           [disabled]="!cartProducts?.length"
-          (click)="this.clearCartProducts()"
+          (click)="clearCartProducts()"
         >
           Очистить корзину
         </button>
@@ -157,22 +155,26 @@
       <div class="order-summary">
         <div class="order-summary-info">
           <h3 class="order-summary-header">Итого</h3>
-          <p>Товары: {{ this.productsPrice }} ₽</p>
+          <p>Товары: {{ this.cartProductsPrice }} ₽</p>
           <p>Доставка: {{ this.deliveryPrice }} ₽</p>
           <p>
             <b
               >Общая стоимость:
-              {{ (this.productsPrice || 0) + this.deliveryPrice }} ₽</b
+              {{ (this.cartProductsPrice || 0) + this.deliveryPrice }} ₽</b
             >
           </p>
         </div>
         <div class="payment">
-          <button class="btn">Оплатить</button>
+          <!-- <button class="btn" disabled>Оплатить</button>
+          <span style="color: gray; font-size: 0.75rem"
+            >В данный момент оплата доступна только наличными</span
+          > -->
+          <button class="btn" disabled>Оформить заказ</button>
         </div>
       </div>
     </div>
 
-    <div class="attention">
+    <div class="glass-like attention">
       <div class="attention-header">Обратите внимание!</div>
       <div class="body">
         При отсутствии некоторых сортов и оттенков цветов, а также вариантов

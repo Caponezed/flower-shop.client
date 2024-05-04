@@ -1,21 +1,29 @@
-<div class="card-container">
+<div class="card-container glass-like">
   <div class="card-content">
     <a
       routerLink="product"
-      [queryParams]="{ id: product.id, category: product.category.name }"
+      [queryParams]="{
+        productId: product.productId,
+        categoryName: product.category.categoryName
+      }"
     >
-      <img class="img card-img" [src]="product.imgUrl" [alt]="product.name"
+      <img
+        class="img card-img"
+        [src]="product.imgUrl"
+        [alt]="product.productName"
     /></a>
     <div class="card-summary">
-      <p class="card-signature">{{ product.name }}</p>
+      <p class="card-signature">{{ product.productName }}</p>
       <p class="card-price">{{ product.price }}₽</p>
     </div>
     <p class="card-description">
-      {{ product.description }}
+      {{ product.productDescription }}
     </p>
   </div>
   <div class="card-buttons">
-    <button class="btn card-button">💖</button>
+    <button class="btn card-button" (click)="deleteProduct()">
+      <img src="../../../assets/icons/trash-bin.svg" alt=" " />
+    </button>
     <app-product-buttons
       class="card-button"
       [product]="product"

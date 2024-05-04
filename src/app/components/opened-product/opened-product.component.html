@@ -1,17 +1,17 @@
 <div class="container">
   <div class="img-container">
-    <img class="img card-img" [src]="product?.imgUrl" />
+    <img class="img card-img" [src]="product.imgUrl" />
   </div>
   <div class="info-container">
     <div class="product-info">
-      <h2 class="card-title">{{ product?.name }}</h2>
-      <span class="card-price">{{ product?.price }}₽</span>
+      <h2 class="card-title">{{ product.productName }}</h2>
+      <span class="card-price">{{ product.price }}₽</span>
       <p class="card-description">
-        {{ product?.description }}
+        {{ product.productDescription }}
       </p>
     </div>
     <div class="counter">
-      <app-product-buttons [product]="product!" (countChange)="countChange"></app-product-buttons>
+      <app-product-buttons [product]="product"></app-product-buttons>
     </div>
     <div class="delivery">
       <h3 class="delivery-title">Доставка</h3>

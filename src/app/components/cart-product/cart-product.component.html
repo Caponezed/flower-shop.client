@@ -1,17 +1,17 @@
-<div class="product">
+<div *ngIf="this.cartProduct.quantity" class="product">
   <a
     routerLink="/products/product"
     [queryParams]="{
-      id: cartProduct.id,
-      category: cartProduct.category.name
+      productId: cartProduct.productId,
+      categoryName: cartProduct.category.categoryName
     }"
     ><img class="img product-img" [src]="cartProduct.imgUrl"
   /></a>
 
   <div class="product-info">
-    <h3 class="product-title">{{ cartProduct.name }}</h3>
+    <h3 class="product-title">{{ cartProduct.productName }}</h3>
     <div class="pdoduct-description">
-      {{ cartProduct.description }}
+      {{ cartProduct.productDescription }}
     </div>
     <div class="product-actions">
       <app-product-buttons [product]="cartProduct"></app-product-buttons>

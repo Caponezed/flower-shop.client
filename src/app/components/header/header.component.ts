@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import ProductService from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-header',
@@ -9,23 +8,27 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  public productsPrice?: number;
-
-  private subs!: Subscription;
+  public cartProductsPrice?: number;
 
   constructor(
-    private readonly data: DataService,
-    private readonly localStorage: LocalStorageService
+    public readonly dataService: DataService,
+    private readonly productService: ProductService
   ) {}
 
   ngOnInit() {
-    this.productsPrice = this.localStorage.countProductsPrice();
-    this.subs = this.data.cartProducts$.subscribe(
-      () => (this.productsPrice = this.localStorage.countProductsPrice())
-    );
+    this.initData();
   }
 
-  ngOnDestroy() {
-    this.subs.unsubscribe();
+  private async initData() {
+    this.productService.getAllCartProducts().subscribe((cartProducts) => {
+      this.cartProductsPrice =
+        this.dataService.countCartProductsPrice(cartProducts);
+    });
+
+    this.dataService.cartProducts$.subscribe(
+      (cartProducts) =>
+        (this.cartProductsPrice =
+          this.dataService.countCartProductsPrice(cartProducts))
+    );
   }
 }

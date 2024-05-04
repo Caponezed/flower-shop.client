@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 4rem;
   max-width: fit-content;
+  font-size: 1.25rem;
 }
 .delivery {
   display: flex;

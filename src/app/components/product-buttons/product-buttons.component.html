@@ -1,13 +1,10 @@
 <div class="counter card-button">
-  <p class="counter-header" *ngIf="cartProduct?.count">Количество:</p>
-  <button class="btn" *ngIf="cartProduct?.count" (click)="removeCartProduct()">
-    ➖
-  </button>
-  <p class="counter-count" *ngIf="cartProduct?.count">
-    {{ cartProduct?.count }}
+  <button class="btn" *ngIf="quantity" (click)="removeCartProduct()">➖</button>
+  <p class="counter-count" *ngIf="quantity">
+    {{ quantity }}
   </p>
   <button class="btn" (click)="addCartProduct()">➕</button>
-  <span *ngIf="cartProduct?.count" class="counter-price"
-    >{{ (cartProduct?.price || 0) * (cartProduct?.count || 0) }}₽</span
+  <span *ngIf="quantity" class="counter-price"
+    >{{ (quantity || 0) * product.price }}₽</span
   >
 </div>

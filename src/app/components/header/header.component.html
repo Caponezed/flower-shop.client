@@ -32,8 +32,11 @@
     </div>
     <div class="cart-container">
       <a routerLink="/cart" routerLinkActive="link-active">🛒</a>
-      <span>{{ this.productsPrice || 0 }}₽</span>
+      <span>{{ this.cartProductsPrice || 0 }}₽</span>
     </div>
+    <!-- <button class="btn" (click)="this.dataService.setNewCartProducts([])">
+      Clear local cartProducts stream
+    </button> -->
   </div>
   <div class="second-header">
     <nav>
@@ -41,7 +44,7 @@
         <li>
           <a
             routerLink="/products"
-            [queryParams]="{ category: 'Розы' }"
+            [queryParams]="{ categoryId: 1, categoryName: 'Розы' }"
             routerLinkActive="link-active"
             >Розы</a
           >
@@ -49,7 +52,7 @@
         <li>
           <a
             routerLink="/products"
-            [queryParams]="{ category: 'Букеты' }"
+            [queryParams]="{ categoryId: 2, categoryName: 'Букеты' }"
             routerLinkActive="link-active"
             >Букеты</a
           >
@@ -57,7 +60,7 @@
         <li>
           <a
             routerLink="/products"
-            [queryParams]="{ category: 'Композиции' }"
+            [queryParams]="{ categoryId: 3, categoryName: 'Композиции' }"
             routerLinkActive="link-active"
             >Композиции</a
           >
@@ -65,7 +68,10 @@
         <li>
           <a
             routerLink="/products"
-            [queryParams]="{ category: 'Горшечные растения' }"
+            [queryParams]="{
+              categoryId: 4,
+              categoryName: 'Горшечные растения'
+            }"
             routerLinkActive="link-active"
             >Горшечные растения</a
           >
@@ -73,7 +79,7 @@
         <li>
           <a
             routerLink="/products"
-            [queryParams]="{ category: 'Подарки' }"
+            [queryParams]="{ categoryId: 5, categoryName: 'Подарки' }"
             routerLinkActive="link-active"
             >Подарки</a
           >

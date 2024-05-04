@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/model/product';
 import { DataService } from 'src/app/services/data.service';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import ProductService from 'src/app/services/product.service';
+import { Product } from 'src/app/model/product';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-buttons',
@@ -9,58 +10,84 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./product-buttons.component.css'],
 })
 export class ProductButtonsComponent implements OnInit {
-  @Input() product!: Product;
-  public cartProduct?: Product;
+  @Input({ required: true }) product!: Product;
+  public quantity!: number;
 
   constructor(
-    private readonly localStorage: LocalStorageService,
-    private readonly data: DataService
+    private readonly dataService: DataService,
+    private readonly productService: ProductService
   ) {}
 
   ngOnInit() {
-    this.initCartProduct();
+    this.initData();
   }
 
-  private initCartProduct() {
-    let cartProduct = this.localStorage.getCartProduct(this.product.id);
-
-    if (!cartProduct) {
-      cartProduct = this.localStorage.cloneProduct(this.product);
-      cartProduct.count = 0;
-    }
-
-    this.cartProduct = cartProduct;
+  private initData() {
+    this.productService
+      .getCartProductById(this.product.productId)
+      .pipe(take(1))
+      .subscribe((cartProduct) => (this.quantity = cartProduct.quantity));
   }
 
-  private updateCartProducts() {
-    const newCartProducts = this.localStorage.getCartProducts();
-    newCartProducts[this.cartProduct!.id] = this.cartProduct;
-    this.localStorage.putCartProducts(newCartProducts);
-  }
-
+  // Increase methods
   public addCartProduct() {
-    if (this.cartProduct?.count === undefined) return;
+    if (this.quantity === 0) {
+      this.postCartProduct();
+    } else {
+      this.incrementCartProduct();
+    }
+  }
+  public postCartProduct() {
+    if (this.quantity !== 0) return;
 
-    this.cartProduct!.count++;
+    this.productService
+      .postCartProduct(this.product.productId)
+      .pipe(take(1))
+      .subscribe((newCartProducts) => {
+        this.quantity = 1;
+        this.dataService.setNewCartProducts(newCartProducts);
+      });
+  }
+  public incrementCartProduct() {
+    if (this.quantity === 0) return;
 
-    this.updateCartProducts();
-
-    this.data.setNewCartProducts(this.localStorage.getCartProducts());
+    this.productService
+      .setCartProductQuantity(this.product.productId, this.quantity + 1)
+      .pipe(take(1))
+      .subscribe((newCartProducts) => {
+        ++this.quantity;
+        this.dataService.setNewCartProducts(newCartProducts);
+      });
   }
 
-  public removeCartProduct() {
-    if (this.cartProduct!.count === 1) {
-      this.localStorage.removeCartProduct(this.cartProduct!.id);
-      this.cartProduct!.count--;
-
-      this.data.setNewCartProducts(this.localStorage.getCartProducts());
-      return;
+  // Decrease methods
+  public async removeCartProduct() {
+    if (this.quantity === 1) {
+      this.deleteCartProduct();
+    } else {
+      this.decrementCartProduct();
     }
+  }
+  public async deleteCartProduct() {
+    if (this.quantity !== 1) return;
 
-    this.cartProduct!.count!--;
+    this.productService
+      .deleteCartProductById(this.product.productId)
+      .pipe(take(1))
+      .subscribe((newCartProducts) => {
+        this.quantity = 0;
+        this.dataService.setNewCartProducts(newCartProducts);
+      });
+  }
+  public async decrementCartProduct() {
+    if (this.quantity === 1) return;
 
-    this.updateCartProducts();
-
-    this.data.setNewCartProducts(this.localStorage.getCartProducts());
+    this.productService
+      .setCartProductQuantity(this.product.productId, this.quantity - 1)
+      .pipe(take(1))
+      .subscribe((newCartProducts) => {
+        --this.quantity;
+        this.dataService.setNewCartProducts(newCartProducts);
+      });
   }
 }

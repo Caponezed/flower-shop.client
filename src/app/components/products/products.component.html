@@ -1,7 +1,29 @@
-<h1 style="margin-bottom: 16px">{{ this.category }}</h1>
+<div class="heading">
+  <h1 style="margin-bottom: 16px">{{ this.categoryName }}</h1>
+  <button class="btn" (click)="toggleModal()">
+    Добавить {{ categoryName | lowercase }}
+  </button>
+</div>
 <div class="cards-container">
   <app-product
     *ngFor="let product of products"
     [product]="product"
+    (productDeleted)="
+      this.products = $event; this.checkProductsExistance($event)
+    "
   ></app-product>
+  <h3 *ngIf="isEmpty">
+    Ой, кажется товаров из данной категории и вовсе нету 😞
+  </h3>
 </div>
+
+<app-new-product-modal
+  *ngIf="this.isModalOpened"
+  [isModalOpened]="isModalOpened"
+  [categoryName]="categoryName"
+  [categoryId]="categoryId"
+  (modalClosed)="toggleModal()"
+  (newProductAdded)="
+    this.products = $event; this.checkProductsExistance($event)
+  "
+></app-new-product-modal>

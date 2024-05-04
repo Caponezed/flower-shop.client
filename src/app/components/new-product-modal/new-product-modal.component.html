@@ -1,0 +1,96 @@
+<div class="backdrop"></div>
+<div class="main-container">
+  <button class="button modal-btn" (click)="modalClosed.emit()">❌</button>
+  <form class="add-cart-form" [formGroup]="newProductForm" (onSubmit)="(true)">
+    <h2>Добавить {{ categoryName | lowercase }}</h2>
+
+    <div class="cart-form-inputs">
+      <div class="add-cart-form-input-container">
+        <span
+          style="color: red"
+          *ngIf="
+            newProductForm.controls['productName'].touched &&
+            newProductForm.controls['productName'].invalid
+          "
+          >Нужно всё-таки дать название товару</span
+        >
+        <input
+          class="input"
+          formControlName="productName"
+          type="text"
+          placeholder="Название товара"
+        />
+      </div>
+      <div class="add-cart-form-input-container">
+        <span
+          style="color: green"
+          *ngIf="newProductForm.controls['productDescription'].touched"
+          >Без описания товара можно, кстати :)</span
+        >
+        <input
+          class="input"
+          formControlName="productDescription"
+          type="text"
+          placeholder="Описание товара"
+        />
+      </div>
+      <div class="add-cart-form-input-container">
+        <span
+          style="color: red"
+          *ngIf="
+            newProductForm.controls['totalQuantity'].touched &&
+            newProductForm.controls['totalQuantity'].invalid
+          "
+          >Думаю, это весьма важно</span
+        >
+        <input
+          class="input"
+          formControlName="totalQuantity"
+          type="number"
+          placeholder="Общее количество товара"
+          min="0"
+        />
+      </div>
+      <div class="add-cart-form-input-container">
+        <span
+          style="color: red"
+          *ngIf="
+            newProductForm.controls['imgUrl'].touched &&
+            newProductForm.controls['imgUrl'].invalid
+          "
+          >Без изображения не красиво</span
+        >
+        <input
+          class="input"
+          formControlName="imgUrl"
+          type="text"
+          placeholder="URL-ссылка на фото товара"
+        />
+      </div>
+      <div class="add-cart-form-input-container">
+        <span
+          style="color: red"
+          *ngIf="
+            newProductForm.controls['price'].touched &&
+            newProductForm.controls['price'].invalid
+          "
+          >За бесплатно не продаём</span
+        >
+        <input
+          class="input"
+          formControlName="price"
+          type="number"
+          placeholder="Цена товара"
+          min="1"
+        />
+      </div>
+    </div>
+    <button
+      [disabled]="this.newProductForm.status === 'INVALID'"
+      class="btn"
+      (click)="this.postNewProduct()"
+    >
+      Добавить товар
+    </button>
+  </form>
+</div>

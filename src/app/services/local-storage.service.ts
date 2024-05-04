@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../model/product';
-import { Subject } from 'rxjs';
+import { CartProduct } from '../model/cart-product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  private cartProducts = new Subject<any>();
-  public cartProducts$ = this.cartProducts.asObservable();
-
   // Working with local storage
   public initLocalStorage(): void {
     if (localStorage.getItem('cartProducts')) return;
@@ -25,7 +21,7 @@ export class LocalStorageService {
 
     return currentCartProducts;
   }
-  public getCartProduct(id: number): Product | undefined {
+  public getCartProduct(id: number): CartProduct | undefined {
     const currentCartProducts = this.getCartProducts();
     const searchedCartProduct = currentCartProducts[id];
 
@@ -36,7 +32,7 @@ export class LocalStorageService {
   public getArrOfCartProducts() {
     const cartProducts = this.getCartProducts();
 
-    const cartProductsArr: Product[] = [];
+    const cartProductsArr: CartProduct[] = [];
     for (const index in cartProducts) {
       cartProductsArr.push(cartProducts[index]);
     }
@@ -60,18 +56,18 @@ export class LocalStorageService {
     localStorage.removeItem('cartProducts');
   }
 
-  public cloneProduct(product: Product): Product {
+  public cloneProduct(product: CartProduct): CartProduct {
     return JSON.parse(JSON.stringify(product));
   }
 
   public countProductsPrice() {
     const cartProductsArr = this.getArrOfCartProducts();
 
-    const productsPrice = cartProductsArr.reduce(
+    const cartProductsPrice = cartProductsArr.reduce(
       (productsPrice, currProduct) =>
-        productsPrice + currProduct.price * (currProduct.count || 1),
+        productsPrice + currProduct.price * (currProduct.quantity || 1),
       0
     );
-    return productsPrice;
+    return cartProductsPrice;
   }
 }

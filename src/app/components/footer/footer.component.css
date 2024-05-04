@@ -6,8 +6,8 @@
   margin-top: 3rem;
   padding: 32px;
 
-  border-top: 1px lightyellow;
-  background-color: lightskyblue;
+  border-top: 1px solid lightgray;
+  background-color: #f0d5cf;
 }
 .column-container {
   display: flex;

@@ -3,6 +3,7 @@
   z-index: 9999;
   top: 0px; */
   margin-bottom: 3rem;
+  font-size: 1.25rem;
 }
 .first-header,
 .second-header {
@@ -16,13 +17,17 @@
 
   padding: 16px 32px;
 
-  background-color: lightskyblue;
+  background-color: #f0d5cf;
+}
+.cart-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 .second-header {
-  color: whitesmoke;
-  background-color: rgb(68, 105, 127);
+  color: white;
+  background-color: #c7958b;
 }
-
 .nav {
   display: flex;
 
