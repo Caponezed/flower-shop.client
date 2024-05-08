@@ -70,6 +70,9 @@ export default class ProductService {
       { productId, quantity: nextQuantity }
     );
   }
+  public setProduct(modifiedProduct: Product) {
+    return this.http.put<Product[]>(`${this.apiUrl}/product`, modifiedProduct);
+  }
 
   // DELETE METHODS
   public deleteAllCartProducts() {

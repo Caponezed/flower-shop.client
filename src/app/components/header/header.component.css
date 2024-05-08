@@ -5,6 +5,9 @@
   margin-bottom: 3rem;
   font-size: 1.25rem;
 }
+.logo {
+  line-height: 1;
+}
 .first-header,
 .second-header {
   margin: 0 -32px;
@@ -23,6 +26,10 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
+}
+.cart-icon {
+  width: 30px;
+  height: 30px;
 }
 .second-header {
   color: white;

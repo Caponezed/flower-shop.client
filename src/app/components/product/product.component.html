@@ -22,8 +22,12 @@
   </div>
   <div class="card-buttons">
     <button class="btn card-button" (click)="deleteProduct()">
+      <!-- Изменить структуру путей -->
       <img src="../../../assets/icons/trash-bin.svg" alt=" " />
     </button>
+    <!-- <button class="btn card-button" (click)="updateProduct()">
+      <img src="../../../assets/icons/" alt=" " />
+    </button> -->
     <app-product-buttons
       class="card-button"
       [product]="product"

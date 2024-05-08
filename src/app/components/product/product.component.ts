@@ -27,4 +27,10 @@ export class ProductComponent {
         this.productDeleted.emit(newProducts);
       });
   }
+  public updateProduct() {
+    this.productService
+      .setProduct(this.product)
+      .pipe(take(1))
+      .subscribe((newProducts) => {});
+  }
 }

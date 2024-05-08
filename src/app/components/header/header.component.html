@@ -1,6 +1,6 @@
 <header class="header">
   <div class="first-header">
-    <app-logo></app-logo>
+    <app-logo class="logo"></app-logo>
     <nav>
       <ul class="nav">
         <li>
@@ -25,13 +25,18 @@
       <a class="social-link phone-number" href="tel: +79807016708"
         ><img
           class="social-link-image"
-          src="../../../assets/icons/phone-call.svg"
+          src="../../../assets/icons/calling-phone.svg"
           alt=""
         />+79807016708</a
       >
     </div>
     <div class="cart-container">
-      <a routerLink="/cart" routerLinkActive="link-active">🛒</a>
+      <a routerLink="/cart" routerLinkActive="link-active"
+        ><img
+          class="img cart-icon"
+          src="../../../assets/icons/cart-basket.svg"
+          alt=" "
+      /></a>
       <span>{{ this.cartProductsPrice || 0 }}₽</span>
     </div>
     <!-- <button class="btn" (click)="this.dataService.setNewCartProducts([])">
